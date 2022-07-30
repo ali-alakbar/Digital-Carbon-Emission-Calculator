@@ -1,0 +1,344 @@
+<html>
+    <head>
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <style>
+
+
+            .container {
+                background: linear-gradient(90deg, rgba(11,219,237,0.1) 0%, 
+                rgba(96,213,200,255) 0%, rgba(255,255,255,0.7) 46%);
+                width: 30%;
+                height: 100vh;
+                float: left;
+                box-shadow: 0 0 10px rgba(8,7,16,0.1);
+            }
+
+            img{
+                margin-top: 10px;
+            }
+            .inline{
+                float: right;
+                margin-right: 45%;
+                margin-top: 9%;
+                color:grey;
+                opacity:0.5;
+                font-size:25px; 
+                text-align:center;
+            }
+            .container1{
+                /* display:flex; */
+                /* align-items:center; */
+                /* justify-content:center; */
+                border-radius:12px;
+                background:white;
+                /*padding: 20px 25px;*/
+                width:90%; 
+                 flex-wrap:wrap;
+                box-shadow: 10px 7px 10px rgba(8,7,16,0.5);
+                margin-top:5px;
+            }
+
+            .break{
+                flex-basis:100%;
+                height:0;
+            }
+
+        
+
+            /*slider css */
+            .switch {
+                position: absolute;
+                right:10px;
+                width: 55px;
+                height: 26px;
+                margin-top: 10px;
+            }
+            
+            .switch input { 
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+            
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: white;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+            
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 18px;
+                width: 18px;
+                left: 8px;
+                bottom: 4px;
+                background-color: aqua;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+            
+            input:checked + .slider {
+                background-color: black;
+            }
+            
+            input:focus + .slider {
+                box-shadow: 0 0 1px #2196F3;
+            }
+            
+            input:checked + .slider:before {
+                -webkit-transform: translateX(26px);
+                -ms-transform: translateX(26px);
+                transform: translateX(26px);
+            }
+            
+            /* Rounded sliders */
+            .slider.round {
+                border-radius: 34px;
+            }
+            
+            .slider.round:before {
+                border-radius: 50%;
+            }
+
+            .line{
+                height:1px;
+                background:black;
+                margin-top:0px;
+                width:100%;
+                
+            }
+
+            .judul{
+                color:black;
+                font-size:20px;
+            }
+
+            .judul1{
+                color:rgb(163, 155, 155);
+                font-size:16px;
+            }
+
+            /*styling two buttons */
+
+            .button1{
+                background-color:rgb(7, 102, 7);
+                border:none; 
+                color:white;
+                cursor:pointer;
+                width:80px;
+                border-radius:8px;
+                padding: 4px 8px;
+
+            }
+
+            .button2{
+                background-color:rgb(199, 15, 15); 
+                border:none; 
+                color:white;
+                cursor:pointer;
+                width:80px;
+                border-radius:8px;
+                padding: 4px 8px;
+
+            }
+
+            .nav-pills .nav-link {
+                color: black;
+            }
+            .nav-pills .nav-link.active {
+                border-bottom: 2px solid aqua;
+                background: unset;
+                border-radius: 0;
+                color: black;
+            }
+
+            .tab-pane {
+                width: 90%;
+                height: 20vh;
+                background-color: white;
+                margin: auto;
+                border: rgba(0, 0, 0, 0.1);
+                border-radius: 15px 15px 15px 15px;
+                box-shadow: 10px 10px 5px rgba(8,7,16,0.5);
+            }
+
+            /*Dark Mode*/
+            .dark .container{
+                background: linear-gradient(90deg, rgba(11,219,237,0.1) 0%, 
+                rgba(0,212,255,1) 0%, rgba(0,0,0,0.7) 46%);
+            }
+
+            .dark .container1,
+            .dark .tab-pane{
+                background: #292C35;
+            }
+            
+            .dark p, 
+            .dark span, 
+            .dark h2,
+            .dark div,
+            .dark .nav-pills .nav-link,
+            .dark .nav-pills .nav-link.active,
+            .dark .inline{
+                color: #ececec;
+                opacity:1;
+            }
+
+            .dark .line{
+                background-color: #ececec;
+            }
+
+
+
+        </style>
+        
+        
+    </head>
+    <body>
+    <div class="container">    
+        <div style="position: relative;">
+            <img src="https://via.placeholder.com/100x80">
+            <h2 class="inline" >Greenie</h2>
+            <label class="switch" id="changeTheme">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div>
+            <p style="">
+                <span class="judul">Greenie Web</span><br><span class="judul1">carbon digitalization</span> 
+            </p>
+
+        </div>
+        <div style="display:flex; text-align:center; flex-direction:column; justify-content:center; align-items:center; width:100%;">
+            
+            <div class="container1">
+                <div style="margin-top: 12px;">Total current emission</div>
+                <div class="break"></div>
+                <p>
+                    <b style="font-size:20px;">128,700</b>
+                    <span style="float: right; position: absolute; margin-left: 20px; margin-top: 3px;"> g/annum </span>
+                </p>
+            </div>
+    
+    
+            <div class="container1">
+                <div style="margin-top: 12px;">Total emission after changes</div>
+                <div class="break"></div>
+                <p>
+                    <b style="font-size:20px;">110,240</b>
+                   <span style="float: right; position: absolute; margin-left: 20px; margin-top: 3px;"> g/annum </span>
+                </p>
+            </div>
+
+        </div>
+        
+        <div style="display:flex; margin-top:24px;">
+            <div style="flex:1;">
+                <p style="font-size: 20px; margin-bottom:0px; margin-top:0px;">
+                    Frontend 
+                </p>
+                <div class="line"></div>
+            </div>
+            <div >
+                <i class="fa-solid fa-angle-down icon-large" data-bs-toggle="collapse" data-bs-target="#btn_front" style="cursor:pointer;"></i>
+            </div>
+        </div>
+            <div class="collapse" id="btn_front" 
+            style="width: 90%; margin-top:-10px; margin: auto;">
+              <div class="card card-body" style="background: transparent; border: none; padding-top: 0"   >
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="margin: auto;">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Image</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link  active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Animation</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Video</button>
+                  </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                  <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0" style="text-align: center;">
+                    <div  class="isi">
+                      <p style="margin-bottom: 5px; padding-top: 10px">Reduce Animation Motion</p>
+                      <p style="margin-bottom: 0;">Current CO2 emission: <b>1.74 g</b></p>
+                      <p style="margin-bottom: 5px;">Rectified CO2 emission: <b>0.31 g</b></p>
+                      <p>CO2 Reduction: <b> 128,700g </b> per year</p>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade  show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0" style="text-align: center;">
+                    <div  class="isi">
+                      <p style="margin-bottom: 5px; padding-top: 10px">Reduce Animation Motion</p>
+                      <p style="margin-bottom: 0;">Current CO2 emission: <b>1.74 g</b></p>
+                      <p style="margin-bottom: 5px;">Rectified CO2 emission: <b>0.31 g</b></p>
+                      <p>CO2 Reduction: <b> 128,700g </b> per year</p>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0" style="text-align: center;">
+                    <div  class="isi">
+                      <p style="margin-bottom: 5px; padding-top: 10px">Reduce Animation Motion</p>
+                      <p style="margin-bottom: 0;">Current CO2 emission: <b>1.74 g</b></p>
+                      <p style="margin-bottom: 5px;">Rectified CO2 emission: <b>0.31 g</b></p>
+                      <p>CO2 Reduction: <b> 128,700g </b> per year</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             </div>
+
+        <div style="display:flex;">
+            <div style="flex:1;">
+                <p style="font-size: 20px; margin-bottom:0px; margin-top:0px;">
+                    Backend 
+                </p>
+                <div class="line"></div>
+            </div>
+            <div >
+                <i type="button" class="fa-solid fa-angle-down icon-large" data-bs-toggle="popover" title="Popover title" data-bs-content="#1" data-bs-target="#1" style="cursor:pointer;"></i>
+                
+            </div>
+        </div>
+
+        <div style="width:100%; margin-top:20px; text-align:center;">
+            <div style="display:inline-block; ">
+                <button class="button1">
+                        Accept
+                    </button>
+                    <button class="button2">
+                        Reject
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script type="text/javascript"> 
+            const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+            const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+        </script>
+
+        <script type="text/javascript">
+            
+            const chk = document.getElementById('changeTheme');
+
+            chk.addEventListener('change', () => {
+                document.body.classList.toggle('dark');
+            });
+
+
+        </script>
+    </body>
+</html>

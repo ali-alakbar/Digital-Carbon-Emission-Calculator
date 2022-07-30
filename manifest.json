@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "Greenie Web",
+  "version": "1",
+  "devtools_page": "devtools.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {},
+  "web_accessible_resources": [
+    {
+      "resources": ["*.html", "*.js", "*.json", "*.JPG", "*.gif"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "chromeos": "Alt+E",
+        "linux": "Alt+E",
+        "mac": "Alt+E",
+        "windows": "Alt+E"
+      }
+    }
+  },
+  "content_scripts": [
+    {
+      "exclude_matches": ["*://www.google.com/*"],
+      "matches": ["*://*/*"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "js": ["Identifier/lazify.js"]
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    },
+    {
+      "matches": ["<all_urls>"],
+      "run_at": "document_end",
+      "js": ["Identifier/remove.js"]
+    },
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["Identifier/lib/jquery/jquery-3.4.1.js", "Identifier/inject.js"]
+    }
+  ],
+  "icons": {
+    "128": "img/greenie-logo-128.png",
+    "48": "img/greenie-logo-edited-48.png",
+    "16": "img/greenie-logo-16.png"
+  },
+  "default_locale": "en",
+  "host_permissions": ["https://*/*", "http://*/*"],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "fontSettings",
+    "webRequest"
+  ]
+}
